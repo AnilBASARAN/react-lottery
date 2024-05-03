@@ -1,22 +1,29 @@
 import React,{Component} from "react";
 import Ball from "./Ball";
 import "./Lottery.css"
+
+
 class Lottery extends Component{
+
+    static defaultProps ={
+        numberOfBalls : 5,
+        maxValue : 40,
+        title : "Lottery",
+        }
+
     constructor(props){
         super(props);
-        this.state={
-            numberOfBalls : 5,
-            maxValue : 40,
-            title : "Lottery",
-            nums : Array(5).fill(40)
-        }
+      this.state = {
+        nums : Array(this.props.numberOfBalls).fill(this.props.maxValue)
+      }
         this.randomizer = this.randomizer.bind(this);
     }
 
     randomizer (){
         let array = [];
-        for(let i = 0; i < this.state.numberOfBalls;i++){
-            let random = Math.floor(Math.random()*this.state.maxValue);
+
+        for(let i = 0; i < this.props.numberOfBalls;i++){
+            let random = Math.floor(Math.random()*this.props.maxValue);
             array.push(random);
         }
 
@@ -28,13 +35,13 @@ class Lottery extends Component{
         return(
            <div className="total">
              <div className="lottery-container" >
-                <h1>{this.state.title}</h1>
+                <h1>{this.props.title}</h1>
                 <div className="ball-container" >
 
                 {[...this.state.nums].map(x=> x= 
                 
                     <Ball
-                     number = {this.state.numberOfBalls}
+                     
                      value = {x}
                      />
                     )

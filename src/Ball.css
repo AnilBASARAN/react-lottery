@@ -1,16 +1,21 @@
 .ball{
     border: 1px solid black;
     border-radius: 50%;
-    background: red;
+    background: tomato;
     width: 60px;
     height: 60px;
     margin: 15px;
     
 }
 
-.ball h1{
+.ball {
     text-align: center;
-    padding: 0;
-    margin: 0;
+    font-size: large;
     color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: 0.75em;
+    margin-right: 0.5em;
+    height: 2.25em;
+    width: 3em;
 }
